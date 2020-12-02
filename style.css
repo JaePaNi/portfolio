@@ -10,10 +10,11 @@
     --color-grey: #616161;
     --color-light-grey: #7c7979;
     --color-blue: #73aace;
+    --color-blue-hard: #0075c3;
     --color-yellow: #fff7d1;
     --color-orange: #feb546;
     --color-black: #000000;
-    --color-light-orange: #ffb300
+    --color-orange-hard: #da8300;
 
     /* Font size */
     --font-large: 48px;
@@ -28,11 +29,28 @@
     --weight-regular: 400;
 
     /* Size */
+    --size-border-radius: 4px;
 }
 
 /* Universal tags */
 * {
     box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', '맑은 고딕';
+    margin: 0;
+    cursor: default;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-white);
+}
+
+ul {
+    padding-left: 0;
+    list-style: none;
 }
 
 /* Typography */
@@ -62,4 +80,38 @@ p {
     font-weight: var(--weight-regular);
     color: var(--color-black);
     margin: 4px 0;
+}
+
+/* Navbar */
+#navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--color-orange);
+    align-items: center;
+    padding: 16px;
+}
+
+.navbar__logo {
+    font-size: var(--font-medium);
+    font-weight: var(--weight-semi-bold);
+}
+
+.navbar__menu {
+    display: flex;
+}
+
+.navbar__menu__item {
+    padding: 8px 12px;
+    margin: 0 4px;
+    color: var(--color-white);
+    cursor: pointer;
+    border-radius: var(--size-border-radius);
+}
+
+.navbar__menu__item.active {
+    border: 1px solid var(--color-white);
+}
+
+.navbar__menu__item:hover {
+    background-color: var(--color-orange-hard);
 }
