@@ -109,7 +109,7 @@ button {
 
 #navbar.navbar--dark {
     background-color: var(--color-orange);
-    padding: 8px;
+    padding: 1px;
 }
 
 .navbar__logo {
