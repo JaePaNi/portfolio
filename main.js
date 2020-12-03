@@ -22,9 +22,11 @@ navbarMenu.addEventListener('click', (event) => {
     element.scrollIntoView({ behavior: "smooth" });
 
     // navbar 선택한 것 border 표시
+    /*
     const active = document.querySelector('.navbar__menu__item.active');
     active.classList.remove('active');
     target.classList.add('active');
+    */
     // navbarMenuItems.forEach((menu) => {
     //     menu.classList.remove('active');
     // });
