@@ -12,14 +12,29 @@ document.addEventListener('scroll', () => {
 
 // navbar, button 선택시 이동
 const navbarMenu = document.querySelector('.navbar__menu');
+const navbarMenuItems = document.querySelectorAll('.navbar__menu__item');
 navbarMenu.addEventListener('click', (event) => {
     const target = event.target;
     const link = target.dataset.link;
-    if (link === null) {
-        return;
-    }
+    if (link === null) return;
+    navbarMenu.classList.remove('open');
     const element = document.querySelector(link);
     element.scrollIntoView({ behavior: "smooth" });
+
+    // navbar 선택한 것 border 표시
+    const active = document.querySelector('.navbar__menu__item.active');
+    active.classList.remove('active');
+    target.classList.add('active');
+    // navbarMenuItems.forEach((menu) => {
+    //     menu.classList.remove('active');
+    // });
+    // target.classList.add('active');
+});
+
+// navbar toggle button to small screen
+const navbarToggleBtn = document.querySelector('.navbar__toggle-btn');
+navbarToggleBtn.addEventListener('click', () => {
+    navbarMenu.classList.toggle('open');
 });
 
 const homeContact = document.querySelector('.home__contact');
@@ -53,11 +68,24 @@ arrow.addEventListener('click', () => {
 
 // 개인프로젝트 부분 선택 카테고리
 const workContainer = document.querySelector('.work__categories');
+const categotyButton = document.querySelectorAll('.category__btn');
 const projectContainer = document.querySelector('.work__projects'); //animation effect 넣어주기 위해사용
 const projects = document.querySelectorAll('.project');
 workContainer.addEventListener('click', (e) => {
     const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
-    if (filter === null) return 0;
+    if (filter === null) return;
+
+    // 프로젝트 카테고리 선택 시 뒷배경 효과
+    const active = document.querySelector('.category__btn.active');
+    active.classList.remove('active');
+    
+    const target = e.target.nodeName === 'BUTTON' ? e.target : e.target.parentNode;
+    target.classList.add('active');
+
+    // categotyButton.forEach((btn) => {
+    //     console.log(btn.classList.remove('active'));
+    // });
+    // e.target.classList.add('active');
 
     projectContainer.classList.add('anim-out');
     setTimeout(() => {
